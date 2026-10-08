@@ -6,6 +6,14 @@ const connectDb = async () => {
       console.log("Database connected successfully");
     });
 
+    mongoose.connection.on("error", (err) => {
+      console.error("MongoDB connection error:", err.message);
+    });
+
+    mongoose.connection.on("disconnected", () => {
+      console.warn("MongoDB disconnected — reconnecting...");
+    });
+
     let mongodbURI = process.env.MONGODB_URI;
     const projectName = "Resume-Builder";
 
@@ -17,9 +25,14 @@ const connectDb = async () => {
       mongodbURI = mongodbURI.slice(0, -1);
     }
 
-    await mongoose.connect(`${mongodbURI}/${projectName}`);
+    await mongoose.connect(`${mongodbURI}/${projectName}`, {
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+      heartbeatFrequencyMS: 10000,
+    });
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
+    console.error("Error connecting to MongoDB:", error.message);
   }
 };
 
