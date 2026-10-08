@@ -13,20 +13,28 @@ const PORT = process.env.PORT || 3000;
 
 connectDb();
 
-// Vercel rewrites fix: restore original URL before Express routing
-app.use((req, _res, next) => {
-  const originalUrl =
-    req.headers["x-vercel-url"] ||
-    req.headers["x-now-original-url"] ||
-    req.headers["x-forwarded-uri"];
-  if (originalUrl && typeof originalUrl === "string") {
-    req.url = originalUrl;
-  }
-  next();
-});
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:5175",
+  "http://localhost:5176",
+  "http://localhost:5177",
+  "https://ai-resume-builder-nu-sandy.vercel.app",
+];
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin || allowedOrigins.includes(origin) || origin.includes("vercel.app")) {
+        cb(null, true);
+      } else {
+        cb(null, true);
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Server is live");
