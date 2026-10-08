@@ -93,6 +93,9 @@ export const updateResume = async (req, res) => {
     }
 
     if (image) {
+      if (!imageKit) {
+        return res.status(400).json({ message: "ImageKit not configured" });
+      }
       const imageBufferData = fs.createReadStream(image.path);
 
       const response = await imageKit.files.upload({
