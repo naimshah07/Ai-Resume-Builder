@@ -13,6 +13,18 @@ const PORT = process.env.PORT || 3000;
 
 connectDb();
 
+// Vercel rewrites fix: restore original URL before Express routing
+app.use((req, _res, next) => {
+  const originalUrl =
+    req.headers["x-vercel-url"] ||
+    req.headers["x-now-original-url"] ||
+    req.headers["x-forwarded-uri"];
+  if (originalUrl && typeof originalUrl === "string") {
+    req.url = originalUrl;
+  }
+  next();
+});
+
 app.use(express.json());
 app.use(cors());
 
