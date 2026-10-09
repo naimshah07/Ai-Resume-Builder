@@ -26,7 +26,6 @@ const connectDb = async () => {
     }
 
     await mongoose.connect(`${mongodbURI}/${projectName}`, {
-      bufferCommands: false,
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
       heartbeatFrequencyMS: 10000,
