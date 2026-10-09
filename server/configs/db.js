@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
 
+let dbReady = false;
+
+export const isDbReady = () => dbReady;
+
 const connectDb = async () => {
   try {
     mongoose.connection.on("connected", () => {
+      dbReady = true;
       console.log("Database connected successfully");
     });
 
@@ -11,6 +16,7 @@ const connectDb = async () => {
     });
 
     mongoose.connection.on("disconnected", () => {
+      dbReady = false;
       console.warn("MongoDB disconnected — reconnecting...");
     });
 
@@ -26,12 +32,15 @@ const connectDb = async () => {
     }
 
     await mongoose.connect(`${mongodbURI}/${projectName}`, {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
+      serverSelectionTimeoutMS: 30000,
+      connectTimeoutMS: 30000,
+      socketTimeoutMS: 60000,
       heartbeatFrequencyMS: 10000,
+      maxPoolSize: 10,
     });
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
+    throw error;
   }
 };
 

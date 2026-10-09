@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-import connectDb from "./configs/db.js";
+import connectDb, { isDbReady } from "./configs/db.js";
 import userRouter from "./routes/userRoutes.js";
 import resumeRouter from "./routes/resumeRoutes.js";
 import aiRouter from "./routes/aiRoutes.js";
@@ -35,6 +35,14 @@ app.use(
     credentials: true,
   })
 );
+
+// DB ready check middleware
+app.use("/api", (req, res, next) => {
+  if (!isDbReady()) {
+    return res.status(503).json({ message: "Database connecting... retry shortly" });
+  }
+  next();
+});
 
 app.get("/", (req, res) => {
   res.send("Server is live");
