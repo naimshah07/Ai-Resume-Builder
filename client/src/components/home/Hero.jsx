@@ -8,11 +8,31 @@ const Hero = () => {
   const { user } = useSelector((state) => state.auth);
 
   const logos = [
-    "https://saasly.prebuiltui.com/assets/companies-logo/instagram.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/framer.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/microsoft.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/huawei.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/walmart.svg",
+    // Instagram
+    <svg key="ig" viewBox="0 0 24 24" fill="none" className="h-6 w-auto text-slate-700" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2"/>
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
+      <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+    </svg>,
+    // Framer
+    <svg key="fr" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-auto text-slate-700" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 2h16v7H12zM4 9h16l-8 8zM4 16h8v6z"/>
+    </svg>,
+    // Microsoft
+    <svg key="ms" viewBox="0 0 24 24" fill="none" className="h-6 w-auto" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="9.5" height="9.5" fill="#F25022"/>
+      <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7FBA00"/>
+      <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00A4EF"/>
+      <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#FFB900"/>
+    </svg>,
+    // Walmart
+    <svg key="wm" viewBox="0 0 24 24" fill="#0071DC" className="h-6 w-auto" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.3 5.71a.75.75 0 01.61 1.27l-3.69 4.52 3.69 4.52a.75.75 0 01-.11 1.06.75.75 0 01-1.07-.11l-3.86-4.73-3.86 4.73a.75.75 0 01-1.07.11.75.75 0 01-.11-1.06l3.69-4.52L5.17 6.98a.75.75 0 01.11-1.06.75.75 0 011.07.11l3.86 4.73 3.86-4.73a.75.75 0 011.06-.11zM5 18.5h14a1 1 0 010 2H5a1 1 0 010-2z"/>
+    </svg>,
+    // Spotify
+    <svg key="sp" viewBox="0 0 24 24" fill="#1DB954" className="h-6 w-auto" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+    </svg>,
   ];
 
   return (
@@ -235,13 +255,10 @@ const Hero = () => {
             className="flex flex-wrap justify-between max-sm:justify-center gap-6 max-w-3xl w-full mx-auto py-4"
             id="logo-container"
           >
-            {logos.map((logo, index) => (
-              <img
-                key={index}
-                src={logo}
-                alt="logo"
-                className="h-6 w-auto max-w-xs"
-              />
+            {logos.map((logo) => (
+              <div key={logo.key} className="max-w-xs flex items-center grayscale hover:grayscale-0 transition">
+                {logo}
+              </div>
             ))}
           </div>
         </div>
