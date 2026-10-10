@@ -18,6 +18,8 @@ const ResumeSchema = new mongoose.Schema(
       location: { type: String, default: "" },
       linkedin: { type: String, default: "" },
       github: { type: String, default: "" },
+      twitter: { type: String, default: "" },
+      instagram: { type: String, default: "" },
       website: { type: String, default: "" },
     },
     experience: [

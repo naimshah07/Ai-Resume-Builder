@@ -5,6 +5,8 @@ import {
   Linkedin,
   Globe,
   Github,
+  Twitter,
+  Instagram,
   ExternalLink,
 } from "lucide-react";
 
@@ -97,6 +99,48 @@ const ClassicTemplate = ({ data, accentColor }) => {
                   {data.personal_info.github.split("https://")[1]
                     ? data.personal_info.github.split("https://")[1]
                     : data.personal_info.github}
+                </span>
+              </a>
+            </div>
+          )}
+          {data.personal_info?.twitter && (
+            <div className="flex items-center gap-1">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={
+                  data.personal_info?.twitter.startsWith("https://")
+                    ? data.personal_info?.twitter
+                    : `https://${data.personal_info?.twitter}`
+                }
+                className="flex items-center gap-1"
+              >
+                <Twitter className="size-4" />
+                <span className="break-all">
+                  {data.personal_info.twitter.split("https://")[1]
+                    ? data.personal_info.twitter.split("https://")[1]
+                    : data.personal_info.twitter}
+                </span>
+              </a>
+            </div>
+          )}
+          {data.personal_info?.instagram && (
+            <div className="flex items-center gap-1">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={
+                  data.personal_info?.instagram.startsWith("https://")
+                    ? data.personal_info?.instagram
+                    : `https://${data.personal_info?.instagram}`
+                }
+                className="flex items-center gap-1"
+              >
+                <Instagram className="size-4" />
+                <span className="break-all">
+                  {data.personal_info.instagram.split("https://")[1]
+                    ? data.personal_info.instagram.split("https://")[1]
+                    : data.personal_info.instagram}
                 </span>
               </a>
             </div>

@@ -74,6 +74,40 @@ const CorporateATSTemplate = ({ data, accentColor }) => {
                 </span>
               </a>
             )}
+            {data.personal_info?.twitter && (
+              <a
+                target="_blank"
+                href={
+                  data.personal_info?.twitter.startsWith("https://")
+                    ? data.personal_info?.twitter
+                    : `https://${data.personal_info?.twitter}`
+                }
+              >
+                <span className="break-all">
+                  •{" "}
+                  {data.personal_info.twitter.split("https://")[1]
+                    ? data.personal_info.twitter.split("https://")[1]
+                    : data.personal_info.twitter}
+                </span>
+              </a>
+            )}
+            {data.personal_info?.instagram && (
+              <a
+                target="_blank"
+                href={
+                  data.personal_info?.instagram.startsWith("https://")
+                    ? data.personal_info?.instagram
+                    : `https://${data.personal_info?.instagram}`
+                }
+              >
+                <span className="break-all">
+                  •{" "}
+                  {data.personal_info.instagram.split("https://")[1]
+                    ? data.personal_info.instagram.split("https://")[1]
+                    : data.personal_info.instagram}
+                </span>
+              </a>
+            )}
             {data.personal_info?.website && (
               <a
                 target="_blank"

@@ -5,6 +5,8 @@ import {
   Linkedin,
   Globe,
   Github,
+  Twitter,
+  Instagram,
   Award,
   ExternalLink,
 } from "lucide-react";
@@ -121,6 +123,42 @@ const MinimalImageTemplate = ({ data, accentColor }) => {
                     {data.personal_info.github.split("https://")[1]
                       ? data.personal_info.github.split("https://")[1]
                       : data.personal_info.github}
+                  </span>
+                </a>
+              )}
+              {data.personal_info?.twitter && (
+                <a
+                  target="_blank"
+                  href={
+                    data.personal_info?.twitter.startsWith("https://")
+                      ? data.personal_info?.twitter
+                      : `https://${data.personal_info?.twitter}`
+                  }
+                  className="flex items-center gap-2"
+                >
+                  <Twitter size={14} style={{ color: accentColor }} />
+                  <span className="break-all">
+                    {data.personal_info.twitter.split("https://")[1]
+                      ? data.personal_info.twitter.split("https://")[1]
+                      : data.personal_info.twitter}
+                  </span>
+                </a>
+              )}
+              {data.personal_info?.instagram && (
+                <a
+                  target="_blank"
+                  href={
+                    data.personal_info?.instagram.startsWith("https://")
+                      ? data.personal_info?.instagram
+                      : `https://${data.personal_info?.instagram}`
+                  }
+                  className="flex items-center gap-2"
+                >
+                  <Instagram size={14} style={{ color: accentColor }} />
+                  <span className="break-all">
+                    {data.personal_info.instagram.split("https://")[1]
+                      ? data.personal_info.instagram.split("https://")[1]
+                      : data.personal_info.instagram}
                   </span>
                 </a>
               )}

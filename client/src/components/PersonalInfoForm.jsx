@@ -2,10 +2,12 @@ import {
   BriefcaseBusiness,
   Github,
   Globe,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
+  Twitter,
   User,
 } from "lucide-react";
 
@@ -44,6 +46,8 @@ const PersonalInfoForm = ({
     },
     { key: "linkedin", label: "LinkedIn Profile", icon: Linkedin, type: "url" },
     { key: "github", label: "GitHub Profile", icon: Github, type: "url" },
+    { key: "twitter", label: "Twitter/X Profile", icon: Twitter, type: "url" },
+    { key: "instagram", label: "Instagram Profile", icon: Instagram, type: "url" },
     { key: "website", label: "Personal Website", icon: Globe, type: "url" },
   ];
 

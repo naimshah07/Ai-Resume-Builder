@@ -7,6 +7,8 @@ import {
   Mail,
   MapPin,
   Phone,
+  Twitter,
+  Instagram,
 } from "lucide-react";
 
 const ModernProTemplate = ({ data, accentColor }) => {
@@ -103,6 +105,44 @@ const ModernProTemplate = ({ data, accentColor }) => {
                   {data.personal_info.github.split("https://")[1]
                     ? data.personal_info.github.split("https://")[1]
                     : data.personal_info.github}
+                </span>
+              </a>
+            )}
+            {data.personal_info?.twitter && (
+              <a
+                target="_blank"
+                href={
+                  data.personal_info?.twitter.startsWith("https://")
+                    ? data.personal_info?.twitter
+                    : `https://${data.personal_info?.twitter}`
+                }
+                rel="noopener noreferrer"
+                className="flex items-center gap-1"
+              >
+                <Twitter size={14} style={{ color: accentColor }} />
+                <span className="truncate">
+                  {data.personal_info.twitter.split("https://")[1]
+                    ? data.personal_info.twitter.split("https://")[1]
+                    : data.personal_info.twitter}
+                </span>
+              </a>
+            )}
+            {data.personal_info?.instagram && (
+              <a
+                target="_blank"
+                href={
+                  data.personal_info?.instagram.startsWith("https://")
+                    ? data.personal_info?.instagram
+                    : `https://${data.personal_info?.instagram}`
+                }
+                rel="noopener noreferrer"
+                className="flex items-center gap-1"
+              >
+                <Instagram size={14} style={{ color: accentColor }} />
+                <span className="truncate">
+                  {data.personal_info.instagram.split("https://")[1]
+                    ? data.personal_info.instagram.split("https://")[1]
+                    : data.personal_info.instagram}
                 </span>
               </a>
             )}
