@@ -2,20 +2,162 @@
 
 @import "tailwindcss";
 
+/* ===== Luxury Theme: Deep Emerald + Champagne Gold ===== */
+@theme {
+  /* Champagne Gold scale */
+  --color-luxury-50: #FBF7EC;
+  --color-luxury-100: #F5ECCB;
+  --color-luxury-200: #EAD999;
+  --color-luxury-300: #DDC266;
+  --color-luxury-400: #C9A961;
+  --color-luxury-500: #B89552;
+  --color-luxury-600: #9A7638;
+  --color-luxury-700: #6F5428;
+  --color-luxury-800: #3F2F16;
+  --color-luxury-900: #1F170B;
+
+  /* Deep Emerald scale */
+  --color-emerald-950: #041511;
+  --color-emerald-900: #052E22;
+
+  /* Ink / charcoal text scale */
+  --color-ink-50: #F5F7F6;
+  --color-ink-100: #E6EAEC;
+  --color-ink-200: #CDD4D8;
+  --color-ink-300: #9FA9B0;
+  --color-ink-400: #6D7883;
+  --color-ink-500: #4A5460;
+  --color-ink-600: #333C47;
+  --color-ink-700: #222A33;
+  --color-ink-800: #151B21;
+  --color-ink-900: #0B0F13;
+
+  /* Cream background */
+  --color-cream-50: #FDFBF6;
+  --color-cream-100: #FAF7EF;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Outfit", "Inter Tight", sans-serif;
+}
+
 * {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink-800 antialiased;
+  }
+
   button {
     @apply cursor-pointer;
   }
 
   input:not([type="checkbox"]) {
-    @apply outline-none focus:ring border border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-lg text-gray-700
+    @apply outline-none focus:ring border border-ink-200 focus:ring-luxury-400 focus:border-luxury-400 rounded-lg text-ink-700 transition-colors;
   }
 
   textarea {
-    @apply outline-none focus:ring border border-gray-300 focus:ring-blue-500 focus:border-blue-500 resize-none
+    @apply outline-none focus:ring border border-ink-200 focus:ring-luxury-400 focus:border-luxury-400 resize-none rounded-lg transition-colors;
   }
+}
+
+@layer components {
+  /* Luxury primary button */
+  .btn-luxury {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full
+           bg-emerald-900 text-luxury-100
+           border border-luxury-400/30
+           shadow-[0_4px_20px_-4px_rgba(5,46,34,0.5)]
+           hover:bg-emerald-950 hover:text-luxury-50 hover:border-luxury-400/60
+           hover:shadow-[0_8px_30px_-6px_rgba(5,46,34,0.6)]
+           active:scale-[0.97] transition-all duration-300;
+  }
+
+  /* Luxury ghost button */
+  .btn-luxury-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full
+           bg-transparent text-emerald-900
+           border border-emerald-900/20
+           hover:border-emerald-900/50 hover:bg-emerald-900/5
+           active:scale-[0.97] transition-all duration-300;
+  }
+
+  /* Gold pill badge */
+  .badge-luxury {
+    @apply inline-flex items-center gap-2 px-5 py-1.5 rounded-full text-sm
+           bg-luxury-100 text-luxury-700 border border-luxury-300/50;
+  }
+
+  /* Card with luxury border */
+  .card-luxury {
+    @apply bg-white border border-ink-100 rounded-2xl
+           shadow-[0_2px_12px_-4px_rgba(11,15,19,0.08)]
+           hover:shadow-[0_12px_40px_-12px_rgba(11,15,19,0.18)]
+           hover:border-luxury-300/60
+           transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-linear-to-r from-luxury-500 via-luxury-400 to-luxury-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-emerald {
+    @apply bg-linear-to-r from-emerald-900 to-emerald-700 bg-clip-text text-transparent;
+  }
+
+  .shadow-luxury {
+    box-shadow: 0 10px 40px -12px rgba(5, 46, 34, 0.25);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.7s ease-out both;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-luxury-300);
+  border-radius: 9999px;
+  border: 2px solid var(--color-cream-50);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-luxury-400);
 }

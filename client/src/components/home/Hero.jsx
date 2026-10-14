@@ -9,13 +9,13 @@ const Hero = () => {
 
   const logos = [
     // Instagram
-    <svg key="ig" viewBox="0 0 24 24" fill="none" className="h-6 w-auto text-slate-700" xmlns="http://www.w3.org/2000/svg">
+    <svg key="ig" viewBox="0 0 24 24" fill="none" className="h-6 w-auto text-ink-600" xmlns="http://www.w3.org/2000/svg">
       <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2"/>
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
       <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
     </svg>,
     // Framer
-    <svg key="fr" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-auto text-slate-700" xmlns="http://www.w3.org/2000/svg">
+    <svg key="fr" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-auto text-ink-600" xmlns="http://www.w3.org/2000/svg">
       <path d="M4 2h16v7H12zM4 9h16l-8 8zM4 16h8v6z"/>
     </svg>,
     // Microsoft
@@ -44,17 +44,17 @@ const Hero = () => {
             <img src="/logo.svg" alt="logo" className="h-11 w-auto" />
           </a>
 
-          <div className="hidden md:flex items-center gap-8 transition duration-500 text-slate-800">
-            <a href="#" className="hover:text-green-600 transition">
+          <div className="hidden md:flex items-center gap-8 transition duration-500 text-ink-800">
+            <a href="#" className="hover:text-luxury-600 transition">
               Home
             </a>
-            <a href="#features" className="hover:text-green-600 transition">
+            <a href="#features" className="hover:text-luxury-600 transition">
               Features
             </a>
-            <a href="#testimonials" className="hover:text-green-600 transition">
+            <a href="#testimonials" className="hover:text-luxury-600 transition">
               Testimonials
             </a>
-            <a href="#cta" className="hover:text-green-600 transition">
+            <a href="#cta" className="hover:text-luxury-600 transition">
               Contact
             </a>
           </div>
@@ -62,21 +62,21 @@ const Hero = () => {
           <div className="flex gap-2">
             <Link
               to="/app?state=register"
-              className="hidden md:block px-6 py-2 bg-green-500 hover:bg-green-700 active:scale-95 transition-all rounded-full text-white"
+              className="hidden md:block btn-luxury"
               hidden={user}
             >
               Get started
             </Link>
             <Link
               to="/app?state=login"
-              className="hidden md:block px-6 py-2 border active:scale-95 hover:bg-slate-50 transition-all rounded-full text-slate-700 hover:text-slate-900"
+              className="hidden md:block btn-luxury-ghost"
               hidden={user}
             >
               Login
             </Link>
             <Link
               to="/app"
-              className="hidden md:block px-8 py-2 bg-green-500 hover:bg-green-700 active:scale-95 transition-all rounded-full text-white"
+              className="hidden md:block btn-luxury"
               hidden={!user}
             >
               Dashboard
@@ -121,7 +121,7 @@ const Hero = () => {
           </a>
           <button
             onClick={() => setMenuOpen(false)}
-            className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-green-600 hover:bg-green-700 transition text-white rounded-md flex"
+            className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-luxury-600 hover:bg-luxury-700 transition text-white rounded-md flex"
           >
             X
           </button>
@@ -129,7 +129,7 @@ const Hero = () => {
 
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-40 text-black">
-          <div className="absolute top-28 xl:top-10 -z-10 left-1/4 size-72 sm:size-96 xl:size-120 2xl:size-132 bg-green-300 blur-[100px] opacity-30"></div>
+          <div className="absolute top-28 xl:top-10 -z-10 left-1/4 size-72 sm:size-96 xl:size-120 2xl:size-132 bg-emerald-900 blur-[100px] opacity-20"></div>
 
           {/* Avatars + Stars */}
           <div className="flex items-center mt-24">
@@ -177,27 +177,27 @@ const Hero = () => {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="lucide lucide-star text-transparent fill-green-600"
+                      className="lucide lucide-star text-transparent fill-luxury-600"
                       aria-hidden="true"
                     >
                       <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
                     </svg>
                   ))}
               </div>
-              <p className="text-sm text-gray-700">Used by 10,000+ users</p>
+              <p className="text-sm text-ink-500">Used by 10,000+ users</p>
             </div>
           </div>
 
           {/* Headline + CTA */}
-          <h1 className="text-5xl md:text-6xl font-semibold max-w-5xl text-center mt-4 md:leading-[70px]">
+          <h1 className="font-serif text-5xl md:text-6xl font-semibold max-w-5xl text-center mt-4 md:leading-[70px] text-ink-900">
             Land your dream job with{" "}
-            <span className=" bg-linear-to-r from-green-700 to-green-600 bg-clip-text text-transparent text-nowrap">
+            <span className="bg-linear-to-r from-luxury-600 via-luxury-400 to-luxury-600 bg-clip-text text-transparent text-nowrap">
               AI-powered{" "}
             </span>{" "}
             resumes.
           </h1>
 
-          <p className="max-w-md text-center text-base my-7">
+          <p className="max-w-md text-center text-base my-7 text-ink-500">
             Create, edit and download professional resumes with AI-powered
             assistance.
           </p>
@@ -206,7 +206,7 @@ const Hero = () => {
           <div className="flex items-center gap-4 ">
             <Link
               to="/app"
-              className="bg-green-500 hover:bg-green-600 text-white rounded-full px-9 h-12 m-1 ring-offset-2 ring-1 ring-green-400 flex items-center transition-colors"
+              className="btn-luxury px-9 h-12"
             >
               Get started
               <svg
@@ -226,7 +226,7 @@ const Hero = () => {
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </Link>
-            <button className="flex items-center gap-2 border border-slate-400 hover:bg-green-50 transition rounded-full px-7 h-12 text-slate-700">
+            <button className="btn-luxury-ghost h-12">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -247,8 +247,8 @@ const Hero = () => {
             </button>
           </div>
 
-          <p className="py-6 text-slate-600 mt-14">
-            Trusting by leading brands, including
+          <p className="py-6 text-ink-400 mt-14">
+            Trusted by leading brands, including
           </p>
 
           <div
@@ -263,15 +263,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-          * {
-              font-family: 'Poppins', sans-serif;
-          }
-      `}
-      </style>
     </>
   );
 };

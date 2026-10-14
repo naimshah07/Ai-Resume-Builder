@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeftIcon,
@@ -164,7 +164,7 @@ const ResumeBuilder = () => {
 
               <hr className="absolute top-0 left-0 right-0 border-2 border-gray-200" />
               <hr
-                className="absolute top-0 left-0 h-1 bg-linear-to-br from-green-500 to-green-600 border-none transition-all duration-2000"
+                className="absolute top-0 left-0 h-1 bg-linear-to-br from-luxury-500 to-luxury-600 border-none transition-all duration-2000"
                 style={{
                   width: `${
                     (activeSectionIndex * 100) / (sections.length - 1)
@@ -311,7 +311,7 @@ const ResumeBuilder = () => {
                 onClick={() => {
                   toast.promise(saveResume, { loading: "Saving..." });
                 }}
-                className="bg-linear-to-br from-green-100 to-green-200 ring-green-300 text-green-600 ring hover:ring-green-400 transition-all rounded-md px-6 py-2 mt-6 text-sm"
+                className="bg-linear-to-br from-luxury-100 to-luxury-200 ring-luxury-300 text-luxury-600 ring hover:ring-luxury-400 transition-all rounded-md px-6 py-2 mt-6 text-sm"
               >
                 Save Changes
               </button>
@@ -345,7 +345,7 @@ const ResumeBuilder = () => {
 
                 <button
                   onClick={downloadResume}
-                  className="flex items-center p-2 px-6 gap-2 text-xs bg-linear-to-br from-green-100 to-green-200 text-green-600 ring-green-300 rounded-lg hover:ring transition-colors"
+                  className="flex items-center p-2 px-6 gap-2 text-xs bg-linear-to-br from-luxury-100 to-luxury-200 text-luxury-600 ring-luxury-300 rounded-lg hover:ring transition-colors"
                 >
                   <DownloadIcon className="size-4" /> Download
                 </button>

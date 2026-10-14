@@ -21,12 +21,12 @@ const ColorPicker = ({ selectedColor, onChange }) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 text-sm text-purple-600 bg-linear-to-br from-purple-50 to-purple-100 hover:ring transition-all px-3 py-2 rounded-lg"
+        className="flex items-center gap-1 text-sm text-emerald-800 bg-emerald-900/5 ring-emerald-900/10 hover:ring transition-all px-3 py-2 rounded-lg border border-emerald-900/10"
       >
         <Palette size={16} /> <span className="max-sm:hidden">Accent</span>
       </button>
       {isOpen && (
-        <div className="grid grid-cols-4 w-60 gap-2 absolute top-full left-0 right-0 p-3 mt-2 z-10 bg-white rounded-md border border-gray-200 shadow-sm">
+        <div className="grid grid-cols-4 w-60 gap-2 absolute top-full left-0 right-0 p-3 mt-2 z-10 bg-white rounded-md border border-ink-200 shadow-luxury">
           {colors.map((color) => (
             <div
               key={color.value}
@@ -45,7 +45,7 @@ const ColorPicker = ({ selectedColor, onChange }) => {
                   <Check className="size-5 text-white" />
                 </div>
               )}
-              <p className="text-xs text-center mt-1 text-gray-600">
+              <p className="text-xs text-center mt-1 text-ink-600">
                 {color.name}
               </p>
             </div>

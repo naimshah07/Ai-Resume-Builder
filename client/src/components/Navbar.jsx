@@ -15,8 +15,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow bg-white">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3.5 text-slate-800 transition-all">
+    <div className="bg-white border-b border-luxury-200/50 shadow-sm">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3.5 text-ink-800 transition-all">
         <Link to="/">
           <img src="/logo.svg" alt="logo" className="h-11 w-auto" />
         </Link>
@@ -24,7 +24,7 @@ const Navbar = () => {
           <p className="max-sm:hidden">Hi, {user?.name}</p>
           <button
             onClick={logoutUser}
-            className="bg-white hover:bg-slate-50 border border-gray-300 px-7 py-1.5 rounded-full active:scale-95 transition-all"
+            className="btn-luxury-ghost"
           >
             Logout
           </button>

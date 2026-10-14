@@ -131,32 +131,32 @@ const Dashboard = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <p className="text-2xl font-medium mb-6 bg-linear-to-r from-slate-600 to-slate-700 bg-clip-text text-transparent sm:hidden">
+        <p className="text-2xl font-medium mb-6 font-serif text-emerald-900 sm:hidden">
           Welcome, John Doe
         </p>
 
         <div className="flex gap-4">
           <button
             onClick={() => setShowCreteResume(true)}
-            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg text-slate-600 border border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg text-ink-600 border border-dashed border-ink-200 group hover:border-emerald-700 hover:shadow-lg transition-all duration-300 cursor-pointer"
           >
-            <PlusIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-indigo-300 to-indigo-500 text-white rounded-full" />
-            <p className="text-sm group-hover:text-indigo-600 transition-all">
+            <PlusIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-emerald-800 to-emerald-950 text-luxury-50 rounded-full" />
+            <p className="text-sm group-hover:text-emerald-800 transition-all">
               Create Resume
             </p>
           </button>
           <button
             onClick={() => setShowUploadResume(true)}
-            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg text-slate-600 border border-dashed border-slate-300 group hover:border-purple-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg text-ink-600 border border-dashed border-ink-200 group hover:border-luxury-600 hover:shadow-lg transition-all duration-300 cursor-pointer"
           >
-            <UploadCloudIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-purple-300 to-purple-500 text-white rounded-full" />
-            <p className="text-sm group-hover:text-purple-600 transition-all">
+            <UploadCloudIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-luxury-400 to-luxury-700 text-luxury-50 rounded-full" />
+            <p className="text-sm group-hover:text-luxury-700 transition-all">
               Upload Existing
             </p>
           </button>
         </div>
 
-        <hr className="border-slate-300 my-6 sm:w-[305px]" />
+        <hr className="border-ink-200 my-6 sm:w-[305px]" />
 
         <div className="grid grid-cols-2 sm:flex flex-wrap gap-4">
           {allResumes.map((resume, index) => {
@@ -221,7 +221,7 @@ const Dashboard = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-slate-50 border shadow-md rounded-lg w-full max-w-sm p-6"
+              className="relative bg-cream-50 border border-luxury-200/60 shadow-luxury rounded-lg w-full max-w-sm p-6"
             >
               <h2 className="text-xl font-bold mb-4">Create a Resume</h2>
               <input
@@ -229,11 +229,11 @@ const Dashboard = () => {
                 value={title}
                 type="text"
                 placeholder="Enter resume title"
-                className="w-full py-2 mb-4 px-4 focus:border-green-600 ring-green-600"
+                className="w-full py-2 mb-4 px-4 focus:border-emerald-900 ring-emerald-900"
                 required
               />
 
-              <button className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+              <button className="w-full py-2 bg-emerald-900 text-luxury-50 rounded hover:bg-emerald-950 border border-luxury-400/30 transition-all active:scale-[0.98]">
                 Create Resume
               </button>
               <XIcon
@@ -255,7 +255,7 @@ const Dashboard = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-slate-50 border shadow-md rounded-lg w-full max-w-sm p-6"
+              className="relative bg-cream-50 border border-luxury-200/60 shadow-luxury rounded-lg w-full max-w-sm p-6"
             >
               <h2 className="text-xl font-bold mb-4">Upload Resume</h2>
               <input
@@ -263,22 +263,22 @@ const Dashboard = () => {
                 value={title}
                 type="text"
                 placeholder="Enter resume title"
-                className="w-full py-2 mb-4 px-4 focus:border-green-600 ring-green-600"
+                className="w-full py-2 mb-4 px-4 focus:border-emerald-900 ring-emerald-900"
                 required
               />
 
               <div>
                 <label
                   htmlFor="resume-input"
-                  className="block text-sm text-slate-700"
+                  className="block text-sm text-ink-700"
                 >
                   Select resume file
                   <div
-                    className="flex flex-col items-center justify-center gap-2 border group text-slate-400 border-slate-400 border-dashed rounded-md p-4 py-10 my-4 hover:border-green-500 hover:text-green-700 cursor-pointer transition-colors
+                    className="flex flex-col items-center justify-center gap-2 border group text-ink-400 border-ink-300 border-dashed rounded-md p-4 py-10 my-4 hover:border-luxury-500 hover:text-luxury-700 cursor-pointer transition-colors
                   "
                   >
                     {resume ? (
-                      <p className="text-green-700">{resume.name}</p>
+                      <p className="text-luxury-700">{resume.name}</p>
                     ) : (
                       <>
                         <UploadCloud className="size-14 stroke-1" />
@@ -299,10 +299,10 @@ const Dashboard = () => {
 
               <button
                 disabled={isLoading}
-                className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2 bg-emerald-900 text-luxury-50 rounded hover:bg-emerald-950 border border-luxury-400/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 {isLoading && (
-                  <LoaderCircleIcon className="animate-spin size-4 text-white" />
+                  <LoaderCircleIcon className="animate-spin size-4 text-luxury-50" />
                 )}
                 {isLoading ? "Uploading..." : "Upload Resume"}
               </button>
@@ -325,7 +325,7 @@ const Dashboard = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-slate-50 border shadow-md rounded-lg w-full max-w-sm p-6"
+              className="relative bg-cream-50 border border-luxury-200/60 shadow-luxury rounded-lg w-full max-w-sm p-6"
             >
               <h2 className="text-xl font-bold mb-4">Edit Resume Title</h2>
               <input
@@ -333,11 +333,11 @@ const Dashboard = () => {
                 value={title}
                 type="text"
                 placeholder="Enter resume title"
-                className="w-full py-2 mb-4 px-4 focus:border-green-600 ring-green-600"
+                className="w-full py-2 mb-4 px-4 focus:border-emerald-900 ring-emerald-900"
                 required
               />
 
-              <button className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+              <button className="w-full py-2 bg-emerald-900 text-luxury-50 rounded hover:bg-emerald-950 border border-luxury-400/30 transition-all active:scale-[0.98]">
                 Update
               </button>
               <XIcon

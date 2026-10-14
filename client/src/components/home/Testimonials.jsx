@@ -41,7 +41,7 @@ const Testimonials = () => {
           <div className="flex items-center gap-1">
             <p>{card.name}</p>
             <svg
-              className="mt-0.5 fill-green-500"
+              className="mt-0.5 fill-luxury-500"
               width="12"
               height="12"
               viewBox="0 0 12 12"
@@ -54,10 +54,10 @@ const Testimonials = () => {
               />
             </svg>
           </div>
-          <span className="text-xs text-slate-500">{card.handle}</span>
+          <span className="text-xs text-ink-500">{card.handle}</span>
         </div>
       </div>
-      <p className="text-sm py-4 text-gray-800">
+      <p className="text-sm py-4 text-ink-800">
         Radiant made undercutting all of our competitors an absolute breeze.
       </p>
     </div>
@@ -84,8 +84,8 @@ const Testimonials = () => {
         id="testimonials"
         className="flex flex-col items-center my-10 scroll-mt-12"
       >
-        <div className="flex items-center gap-2 text-sm text-green-600 bg-green-400/10 rounded-full px-6 py-1.5">
-          <BookUserIcon className="size-4.5 stroke-gray-600" />
+        <div className="badge-luxury">
+          <BookUserIcon className="size-4.5 stroke-luxury-700" />
           <span>Testimonials</span>
         </div>
 

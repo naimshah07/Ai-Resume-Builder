@@ -55,15 +55,15 @@ const ExperienceForm = ({ data, onChange }) => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-900">
+          <h3 className="flex items-center gap-2 text-lg font-semibold text-ink-900">
             Professional Experience
           </h3>
-          <p className="text-sm text-gray-500">Add your job experience</p>
+          <p className="text-sm text-ink-500">Add your job experience</p>
         </div>
 
         <button
           onClick={addExperience}
-          className="flex items-center gap-2 px-3 py-2 text-sm bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors"
+          className="flex items-center gap-2 px-3 py-2 text-sm bg-luxury-100 text-luxury-700 rounded-lg hover:bg-luxury-200 transition-colors"
         >
           <Plus className="size-4" />
           Add Experience
@@ -71,8 +71,8 @@ const ExperienceForm = ({ data, onChange }) => {
       </div>
 
       {data.length === 0 ? (
-        <div className="text-center py-8 text-gray-500">
-          <Briefcase className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+        <div className="text-center py-8 text-ink-500">
+          <Briefcase className="w-12 h-12 mx-auto mb-3 text-ink-300" />
           <p>No work experience added yet.</p>
           <p className="text-sm">Click "Add Experience" to get started.</p>
         </div>
@@ -81,7 +81,7 @@ const ExperienceForm = ({ data, onChange }) => {
           {data.map((experience, index) => (
             <div
               key={index}
-              className="p-4 border border-gray-200 rounded-lg space-y-3"
+              className="p-4 border border-ink-200 rounded-lg space-y-3"
             >
               <div className="flex justify-between items-start">
                 <h4>Experience #{index + 1}</h4>
@@ -127,7 +127,7 @@ const ExperienceForm = ({ data, onChange }) => {
                   }
                   type="month"
                   disabled={experience.is_current}
-                  className=" px-3 py-2 text-sm rounded-lg disabled:bg-gray-100"
+                  className=" px-3 py-2 text-sm rounded-lg disabled:bg-ink-100"
                 />
               </div>
 
@@ -142,9 +142,9 @@ const ExperienceForm = ({ data, onChange }) => {
                       e.target.checked ? true : false
                     );
                   }}
-                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="rounded border-ink-300 text-emerald-800 focus:ring-emerald-900"
                 />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-ink-700">
                   Currently working here
                 </span>
               </label>
@@ -153,7 +153,7 @@ const ExperienceForm = ({ data, onChange }) => {
                 <div className="flex items-center justify-between">
                   <label className="text-sm font-medium">Job Description</label>
                   <button
-                    className="flex items-center gap-1 px-2 py-1 text-sm bg-purple-100 text-purple-700 rounded hover:bg-purple-200 transition-colors disabled:opacity-50"
+                    className="flex items-center gap-1 px-2 py-1 text-sm bg-emerald-900/5 text-emerald-800 rounded hover:bg-emerald-900/10 border border-emerald-900/10 transition-colors disabled:opacity-50"
                     onClick={() => generateDescription(index)}
                     disabled={
                       generatingIndex === index ||
